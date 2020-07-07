@@ -1,0 +1,51 @@
+<form [formGroup]="form" class="form" (ngSubmit)="login()">
+    <h1 class="mat-display-1">Welcome back</h1>
+      
+    <mat-form-field>
+        <div class="form-group">
+          <input
+            matInput
+            placeholder="Username"
+            class="form-control"
+            type="text"
+            formControlName="username"
+            [ngClass]="{
+              'is-invalid': form.get('username').touched && form.get('username').invalid
+            }"
+          />
+        </div>
+        <mat-error
+          *ngIf="form.get('username').touched && form.get('username').invalid"
+          class="invalid-feedback"
+        >
+          <mat-error *ngIf="form.get('username').errors.required || form.get('username').invalid"
+            >username is required
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="password">
+        <div class="form-group">
+          <input
+            matInput
+            type="password"    
+            placeholder="Password"
+            class="form-control"
+            formControlName="password"
+            [ngClass]="{
+              'is-invalid': form.get('password').touched && form.get('password').invalid
+            }"
+          />
+        </div>
+        <mat-error
+          *ngIf="form.get('password').touched && form.get('password').invalid"
+          class="invalid-feedback"
+        >
+          <mat-error class="field__error" *ngIf="form.get('password').errors.required"
+            >Password is required
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+    <div class="form__actions">
+      <button mat-raised-button class="form__actions-submit gradient-button">Login</button>
+    </div>
+  </form>

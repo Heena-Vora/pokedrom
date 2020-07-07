@@ -1,0 +1,15 @@
+.card-container {
+    display: flex;
+    padding: 1em;
+    .cards {
+        max-width: 250px;
+        margin: 1em;
+        text-align: center;
+        background-color: #ccc;
+        border-radius: 5px;
+        justify-content: space-between;
+        image {
+            margin: 0.5em;
+        }
+    }
+}

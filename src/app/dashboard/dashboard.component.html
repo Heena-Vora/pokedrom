@@ -1,0 +1,14 @@
+<div>
+  <h3>Hello, {{ loggedInUser.name }}!</h3>
+  <button (click)="logout()">Logout</button>
+</div>
+<input matInput placeholder="search" type="text" [(ngModel)]="searchQuery" />
+<div class="card-container">
+  <div
+    class="cards"
+    *ngFor="let pokemon of pokemons | search: 'id,name':searchQuery"
+  >
+    <p>{{ pokemon.name }}</p>
+    <img [src]="pokemon.image" [alt]="pokemon.name" />
+  </div>
+</div>
